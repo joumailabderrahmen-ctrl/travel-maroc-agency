@@ -358,6 +358,6 @@ Le site supporte **Français (FR)** et **Arabe (AR)** via Polylang :
 **JOUMAIL Abderrahmane**  
 1ère année — Conception et Développement de Logiciel (CDL)  
 École Supérieure de Technologie de Dakhla · Année universitaire 2025–2026  
-[2bac.abderrahmen@gmail.com](mailto:2bac.abderrahmen@gmail.com)
+[joumailabderrahmen@gmail.com](mailto:joumailabderrahmen@gmail.com)
 
 ---
