@@ -14,9 +14,6 @@ wp-config.php
 /wp-content/themes/twentytwenty*/
 /wp-content/themes/storefront*/
 
-# ── Uploads (médias, images) ──────────────────────────────────────────────────
-/wp-content/uploads/
-
 # ── Cache et logs ─────────────────────────────────────────────────────────────
 /wp-content/cache/
 /wp-content/debug.log
