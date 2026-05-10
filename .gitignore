@@ -48,6 +48,9 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# ── Rapport académique (privé) ───────────────────────────────────────────────
+RAPPORT_ACADEMIQUE.tex
+
 # ── Fichiers de diagnostic (temporaires) ─────────────────────────────────────
 tma-diag*.php
 
