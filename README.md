@@ -85,30 +85,39 @@ L'ensemble des fonctionnalités métier est encapsulé dans un plugin WordPress 
 
 ```
 boutique/
+├── wp-admin/                         ← WordPress admin (core)
+├── wp-includes/                      ← WordPress core
+├── wp-*.php                          ← Fichiers racine WordPress
+│
 ├── wp-content/
 │   ├── plugins/
-│   │   └── travel-maroc-booking/      ← Plugin métier (sur-mesure)
-│   │       ├── admin/                 ← UI administration
-│   │       ├── includes/              ← Classes PHP (logique métier)
-│   │       ├── public/                ← Rendu frontend
+│   │   └── travel-maroc-booking/     ← Plugin métier (sur-mesure)
+│   │       ├── admin/                ← UI administration
+│   │       ├── includes/             ← Classes PHP (logique métier)
+│   │       ├── public/               ← Rendu frontend
 │   │       └── travel-maroc-booking.php
 │   │
-│   └── themes/
-│       └── travel-maroc/             ← Thème sur-mesure
-│           ├── assets/               ← CSS · JS · images
-│           ├── template-parts/       ← Composants réutilisables
-│           └── woocommerce/          ← Overrides templates WC
+│   ├── themes/
+│   │   └── travel-maroc/            ← Thème sur-mesure
+│   │       ├── assets/              ← CSS · JS · images
+│   │       ├── template-parts/      ← Composants réutilisables
+│   │       └── woocommerce/         ← Overrides templates WC
+│   │
+│   └── uploads/                     ← Médias (images offres, vidéos)
+│       └── 2026/05/                 ← Photos destinations, témoignages
 │
-├── GUIDE-UTILISATEUR.md              ← Guide complet par rôle
-└── README.md                         ← Ce fichier
+├── GUIDE-UTILISATEUR.md             ← Guide complet par rôle
+└── README.md                        ← Ce fichier
 ```
+
+> **Note :** `wp-config.php` (identifiants BDD) et les plugins tiers (WooCommerce, Polylang) ne sont pas inclus dans le dépôt.
 
 ---
 
 ## Télécharger et installer le projet
 
-> ⚠️ **Ce dépôt contient uniquement le plugin et le thème sur-mesure**, pas WordPress complet.  
-> Il faut d'abord avoir WordPress installé et fonctionnel, puis copier ces fichiers dedans.
+> ℹ️ **Ce dépôt contient WordPress core, le plugin et le thème sur-mesure, ainsi que tous les médias.**  
+> Il suffit de copier les fichiers dans XAMPP, créer la base de données, et configurer `wp-config.php`.
 
 ---
 
@@ -120,11 +129,12 @@ Tu n'as **pas besoin de connaître Git** pour récupérer le projet.
 2. Clique sur le bouton vert **`<> Code`** (en haut à droite de la liste des fichiers)
 3. Dans le menu qui s'ouvre, clique sur **`Download ZIP`**
 4. Un fichier `travel-maroc-agency-master.zip` va se télécharger sur ton PC
-5. **Fais un clic droit** sur le ZIP → **Extraire tout** → choisir un dossier temporaire
+5. **Fais un clic droit** sur le ZIP → **Extraire tout** → extraire dans `C:\xampp\htdocs\`
+6. **Renomme** le dossier extrait `travel-maroc-agency-master` en **`boutique`**
 
-> 💡 Si tu connais Git, tu peux aussi cloner avec :
+> 💡 Si tu connais Git, tu peux aussi cloner directement dans le bon dossier :
 > ```bash
-> git clone https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency.git
+> git clone https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency.git C:\xampp\htdocs\boutique
 > ```
 
 ---
@@ -141,27 +151,27 @@ Si XAMPP n'est pas encore installé sur ton PC :
 
 ---
 
-### Étape 3 — Installer WordPress
+### Étape 3 — Créer la base de données
 
-Si WordPress n'est pas encore installé :
-
-1. Télécharge WordPress sur **https://fr.wordpress.org/download/**
-2. Extrait le ZIP et **renomme le dossier** en `boutique`
-3. Copie ce dossier dans `C:\xampp\htdocs\`
-4. Ouvre ton navigateur et va sur **http://localhost/phpmyadmin**
-5. Clique sur **Nouvelle base de données**, tape `boutique`, puis **Créer**
-6. Va sur **http://localhost/boutique** dans ton navigateur et suis l'assistant WordPress
+1. Ouvre ton navigateur et va sur **http://localhost/phpmyadmin**
+2. Clique sur **Nouvelle base de données** (colonne de gauche)
+3. Tape `boutique` dans le champ, puis clique sur **Créer**
 
 ---
 
-### Étape 4 — Copier le plugin et le thème
+### Étape 4 — Configurer WordPress
 
-Une fois WordPress installé, copie les fichiers du projet téléchargé :
+1. Dans `C:\xampp\htdocs\boutique\`, trouve le fichier `wp-config-sample.php`
+2. **Copie-le** et renomme la copie en `wp-config.php`
+3. Ouvre `wp-config.php` avec le Bloc-notes et modifie ces 3 lignes :
 
-| Depuis le ZIP extrait | Vers |
-|---|---|
-| `wp-content/plugins/travel-maroc-booking/` | `C:\xampp\htdocs\boutique\wp-content\plugins\` |
-| `wp-content/themes/travel-maroc/` | `C:\xampp\htdocs\boutique\wp-content\themes\` |
+```php
+define( 'DB_NAME',     'boutique' );  // nom de ta base de données
+define( 'DB_USER',     'root' );      // utilisateur XAMPP par défaut
+define( 'DB_PASSWORD', '' );          // mot de passe vide par défaut
+```
+
+4. Sauvegarde le fichier
 
 ---
 
@@ -175,16 +185,25 @@ Dans WP Admin (`http://localhost/boutique/wp-admin`) :
 
 ---
 
-### Étape 6 — Activer le thème et le plugin
+### Étape 6 — Finaliser l'installation WordPress
 
-Dans WP Admin :
+Va sur **http://localhost/boutique** dans ton navigateur et suis l'assistant :
+- Choisis la langue
+- Remplis le nom du site, email admin, identifiant et mot de passe
+- Clique sur **Installer WordPress**
+
+---
+
+### Étape 7 — Activer le thème et le plugin
+
+Dans WP Admin (`http://localhost/boutique/wp-admin`) :
 
 1. **Apparence → Thèmes** → Clique sur **Activer** sous `Travel Maroc`
 2. **Extensions** → Clique sur **Activer** sous `Travel Maroc Booking`
 
 ---
 
-### Étape 7 — Injecter les données de démonstration
+### Étape 8 — Injecter les données de démonstration
 
 1. Dans WP Admin, va dans le menu **Travel Maroc → Paramètres**
 2. Clique sur **Insérer les données démo**
