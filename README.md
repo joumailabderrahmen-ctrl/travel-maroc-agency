@@ -361,7 +361,3 @@ Le site supporte **Français (FR)** et **Arabe (AR)** via Polylang :
 [2bac.abderrahmen@gmail.com](mailto:2bac.abderrahmen@gmail.com)
 
 ---
-
-## Licence
-
-Ce projet est développé à des fins académiques. Tous droits réservés — EST Dakhla 2025/2026.
