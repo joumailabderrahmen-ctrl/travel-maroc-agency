@@ -14,7 +14,7 @@ Application Web de réservation touristique développée dans le cadre du module
 2. [Stack technique](#stack-technique)
 3. [Fonctionnalités](#fonctionnalités)
 4. [Architecture du projet](#architecture-du-projet)
-5. [Installation locale](#installation-locale)
+5. [Télécharger et installer le projet](#télécharger-et-installer-le-projet)
 6. [Plugin Travel Maroc Booking](#plugin-travel-maroc-booking)
 7. [Thème Travel Maroc](#thème-travel-maroc)
 8. [Base de données](#base-de-données)
@@ -22,6 +22,7 @@ Application Web de réservation touristique développée dans le cadre du module
 10. [API REST](#api-rest)
 11. [Multilingue](#multilingue)
 12. [Documentation](#documentation)
+13. [Auteur](#auteur)
 
 ---
 
@@ -30,8 +31,6 @@ Application Web de réservation touristique développée dans le cadre du module
 **Travel Maroc Agency** est une plateforme e-commerce de réservation de voyages au Maroc, construite sur WordPress + WooCommerce. Elle permet aux clients de parcourir des offres touristiques, de réserver en ligne avec sélection de date et de voyageurs, et de bénéficier d'un programme de fidélité à points.
 
 L'ensemble des fonctionnalités métier est encapsulé dans un plugin WordPress sur-mesure (`travel-maroc-booking`) et un thème dédié (`travel-maroc`).
-
-**URL locale :** `http://localhost/boutique`
 
 ---
 
@@ -101,62 +100,102 @@ boutique/
 │           └── woocommerce/          ← Overrides templates WC
 │
 ├── GUIDE-UTILISATEUR.md              ← Guide complet par rôle
-├── RAPPORT_ACADEMIQUE.tex            ← Rapport académique LaTeX
 └── README.md                         ← Ce fichier
 ```
 
 ---
 
-## Installation locale
+## Télécharger et installer le projet
 
-### Prérequis
+> ⚠️ **Ce dépôt contient uniquement le plugin et le thème sur-mesure**, pas WordPress complet.  
+> Il faut d'abord avoir WordPress installé et fonctionnel, puis copier ces fichiers dedans.
 
-- [XAMPP](https://www.apachefriends.org/) (Apache + MySQL + PHP 8.0+)
-- WordPress 6.x
-- WooCommerce 9.x
-- Polylang (plugin WordPress)
+---
 
-### Étapes
+### Étape 1 — Télécharger le projet depuis GitHub
 
-**1. Cloner le dépôt**
+Tu n'as **pas besoin de connaître Git** pour récupérer le projet.
 
-```bash
-git clone https://github.com/<votre-username>/travel-maroc-agency.git
-cd travel-maroc-agency
-```
+1. Va sur la page GitHub : **https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency**
+2. Clique sur le bouton vert **`<> Code`** (en haut à droite de la liste des fichiers)
+3. Dans le menu qui s'ouvre, clique sur **`Download ZIP`**
+4. Un fichier `travel-maroc-agency-master.zip` va se télécharger sur ton PC
+5. **Fais un clic droit** sur le ZIP → **Extraire tout** → choisir un dossier temporaire
 
-**2. Copier dans XAMPP**
+> 💡 Si tu connais Git, tu peux aussi cloner avec :
+> ```bash
+> git clone https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency.git
+> ```
 
-```
-Copier le dossier dans : C:\xampp\htdocs\boutique\
-```
+---
 
-**3. Configurer WordPress**
+### Étape 2 — Installer XAMPP
 
-Créer la base de données dans phpMyAdmin :
-```sql
-CREATE DATABASE boutique CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
+Si XAMPP n'est pas encore installé sur ton PC :
 
-Copier et éditer `wp-config-sample.php` → `wp-config.php` :
-```php
-define( 'DB_NAME',     'boutique' );
-define( 'DB_USER',     'root' );
-define( 'DB_PASSWORD', '' );
-define( 'DB_HOST',     'localhost' );
-```
+1. Va sur **https://www.apachefriends.org**
+2. Télécharge et installe **XAMPP pour Windows**
+3. Lance **XAMPP Control Panel**
+4. Clique sur **Start** pour **Apache** et **MySQL**
+5. Les deux doivent afficher `Running` en vert
 
-**4. Activer le plugin et le thème**
+---
+
+### Étape 3 — Installer WordPress
+
+Si WordPress n'est pas encore installé :
+
+1. Télécharge WordPress sur **https://fr.wordpress.org/download/**
+2. Extrait le ZIP et **renomme le dossier** en `boutique`
+3. Copie ce dossier dans `C:\xampp\htdocs\`
+4. Ouvre ton navigateur et va sur **http://localhost/phpmyadmin**
+5. Clique sur **Nouvelle base de données**, tape `boutique`, puis **Créer**
+6. Va sur **http://localhost/boutique** dans ton navigateur et suis l'assistant WordPress
+
+---
+
+### Étape 4 — Copier le plugin et le thème
+
+Une fois WordPress installé, copie les fichiers du projet téléchargé :
+
+| Depuis le ZIP extrait | Vers |
+|---|---|
+| `wp-content/plugins/travel-maroc-booking/` | `C:\xampp\htdocs\boutique\wp-content\plugins\` |
+| `wp-content/themes/travel-maroc/` | `C:\xampp\htdocs\boutique\wp-content\themes\` |
+
+---
+
+### Étape 5 — Installer WooCommerce et Polylang
+
+Dans WP Admin (`http://localhost/boutique/wp-admin`) :
+
+1. Va dans **Extensions → Ajouter**
+2. Recherche **WooCommerce** → **Installer** → **Activer**
+3. Recherche **Polylang** → **Installer** → **Activer**
+
+---
+
+### Étape 6 — Activer le thème et le plugin
 
 Dans WP Admin :
-- **Apparence → Thèmes** → Activer `Travel Maroc`
-- **Extensions** → Activer `Travel Maroc Booking`
 
-**5. Injecter les données de démonstration**
+1. **Apparence → Thèmes** → Clique sur **Activer** sous `Travel Maroc`
+2. **Extensions** → Clique sur **Activer** sous `Travel Maroc Booking`
 
-Dans WP Admin → **Travel Maroc → Paramètres → Données démo** → cliquer sur **Insérer les données démo**.
+---
+
+### Étape 7 — Injecter les données de démonstration
+
+1. Dans WP Admin, va dans le menu **Travel Maroc → Paramètres**
+2. Clique sur **Insérer les données démo**
 
 Cela crée automatiquement : 4 guides, 6 hôtels, 5 moyens de transport, 3 localisations.
+
+---
+
+### ✅ Le site est prêt !
+
+Ouvre **http://localhost/boutique** dans ton navigateur.
 
 ---
 
@@ -218,7 +257,7 @@ travel-maroc/
 
 ## Base de données
 
-Le plugin crée 10 tables personnalisées avec le préfixe `wp_tma_` :
+Le plugin crée automatiquement 10 tables personnalisées avec le préfixe `wp_tma_` :
 
 | Table | Description |
 |---|---|
@@ -232,6 +271,8 @@ Le plugin crée 10 tables personnalisées avec le préfixe `wp_tma_` :
 | `wp_tma_transport` | Moyens de transport (vol, bus, train, voiture) |
 | `wp_tma_log_admin` | Journal d'audit immuable (IP, user, action, données) |
 | `wp_tma_notification` | Notifications multi-canal avec statut envoi |
+
+> Ces tables sont créées automatiquement lors de l'activation du plugin. Aucune manipulation SQL manuelle n'est nécessaire.
 
 ---
 
@@ -290,7 +331,6 @@ Le site supporte **Français (FR)** et **Arabe (AR)** via Polylang :
 | Fichier | Description |
 |---|---|
 | `GUIDE-UTILISATEUR.md` | Guide complet par rôle (Visiteur, Client, Agent, Admin) |
-| `RAPPORT_ACADEMIQUE.tex` | Rapport académique LaTeX (compiler avec pdflatex) |
 
 ---
 
@@ -302,3 +342,7 @@ Le site supporte **Français (FR)** et **Arabe (AR)** via Polylang :
 [2bac.abderrahmen@gmail.com](mailto:2bac.abderrahmen@gmail.com)
 
 ---
+
+## Licence
+
+Ce projet est développé à des fins académiques. Tous droits réservés — EST Dakhla 2025/2026.
