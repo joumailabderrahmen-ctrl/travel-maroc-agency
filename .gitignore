@@ -1,28 +1,20 @@
-# ── WordPress Core ────────────────────────────────────────────────────────────
-/index.php
-/license.txt
-/readme.html
-/xmlrpc.php
-/wp-*.php
-/wp-admin/
-/wp-includes/
-
-# ── Configuration sensible ────────────────────────────────────────────────────
+# ── Fichier de configuration SENSIBLE (identifiants BDD) ─────────────────────
 wp-config.php
 .env
 *.env
 
-# ── Plugins tiers (non sur-mesure) ───────────────────────────────────────────
+# ── Plugins tiers (téléchargeables séparément) ───────────────────────────────
 /wp-content/plugins/akismet/
 /wp-content/plugins/hello.php
 /wp-content/plugins/polylang/
 /wp-content/plugins/woocommerce/
+/wp-content/plugins/woocommerce-multilingual/
 
 # ── Thèmes tiers ──────────────────────────────────────────────────────────────
 /wp-content/themes/twentytwenty*/
 /wp-content/themes/storefront*/
 
-# ── Uploads (médias) ──────────────────────────────────────────────────────────
+# ── Uploads (médias, images) ──────────────────────────────────────────────────
 /wp-content/uploads/
 
 # ── Cache et logs ─────────────────────────────────────────────────────────────
@@ -43,7 +35,7 @@ desktop.ini
 .vscode/
 *.sublime-workspace
 
-# ── Node (si utilisé) ────────────────────────────────────────────────────────
+# ── Node ─────────────────────────────────────────────────────────────────────
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -55,10 +47,11 @@ RAPPORT_ACADEMIQUE.tex
 tma-diag*.php
 
 # ── Ce qui EST inclus dans le dépôt ─────────────────────────────────────────
+# ✅ wp-admin/
+# ✅ wp-includes/
+# ✅ wp-*.php (core WordPress)
 # ✅ wp-content/plugins/travel-maroc-booking/
 # ✅ wp-content/themes/travel-maroc/
 # ✅ wp-config-sample.php
 # ✅ .htaccess
-# ✅ README.md
-# ✅ GUIDE-UTILISATEUR.md
-# ✅ RAPPORT_ACADEMIQUE.tex
+# ✅ README.md · GUIDE-UTILISATEUR.md
