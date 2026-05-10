@@ -1,7 +1,10 @@
 # Travel Maroc Agency — Plateforme de Réservation Touristique
 
-> Projet académique réalisé dans le cadre du module **Conception et Développement de Logiciels**  
-> **École Supérieure de Technologie de Dakhla — 2025/2026**
+[![GitHub](https://img.shields.io/badge/GitHub-travel--maroc--agency-0d2b55?style=flat&logo=github)](https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency)
+
+Application Web de réservation touristique développée dans le cadre du module **Conception et Développement de Logiciels** à l'École Supérieure de Technologie de Dakhla.
+
+> **Dépôt** : https://github.com/joumailabderrahmen-ctrl/travel-maroc-agency
 
 ---
 
@@ -291,11 +294,12 @@ Le site supporte **Français (FR)** et **Arabe (AR)** via Polylang :
 
 ---
 
-## Équipe
+## Auteur
 
-Projet réalisé dans le cadre de la formation **Licence Sciences et Techniques (LST)**  
-**École Supérieure de Technologie (EST) — Dakhla**  
-Filière : Génie Logiciel · Année : 2025/2026
+**JOUMAIL Abderrahmane**  
+1ère année — Conception et Développement de Logiciel (CDL)  
+École Supérieure de Technologie de Dakhla · Année universitaire 2025–2026  
+[2bac.abderrahmen@gmail.com](mailto:2bac.abderrahmen@gmail.com)
 
 ---
 
