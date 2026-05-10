@@ -1,0 +1,1534 @@
+/* styles additionnels — variables dans style.css */
+
+/* ================================================================
+   SÉLECTEUR DE LANGUE WPML / POLYLANG
+   ================================================================ */
+.tma-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    margin-left: .5rem;
+}
+.tma-lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: .25rem .45rem;
+    border-radius: 4px;
+    font-size: .75rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+    transition: background .2s, color .2s;
+    border: 1px solid transparent;
+}
+.tma-lang-btn:hover,
+.tma-lang-btn.tma-lang--active {
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border-color: rgba(255,255,255,.25);
+}
+
+/* ================================================================
+   RTL — Support arabe (body.tma-rtl)
+   ================================================================ */
+.tma-rtl { direction: rtl; text-align: right; }
+.tma-rtl .site-header .header-inner { flex-direction: row-reverse; }
+.tma-rtl .primary-nav ul { flex-direction: row-reverse; }
+.tma-rtl .tma-filter-btn { margin-right: 0; margin-left: .5rem; }
+.tma-rtl .tma-fidelite-card { flex-direction: row-reverse; }
+.tma-rtl .footer-grid { direction: rtl; }
+.tma-rtl .contact-grid { direction: rtl; }
+.tma-rtl .tma-booking-info li { flex-direction: row-reverse; }
+.tma-rtl .tma-dash-order { flex-direction: row-reverse; }
+/* Polices arabes */
+.tma-rtl body,
+.tma-rtl h1, .tma-rtl h2, .tma-rtl h3 {
+    font-family: 'Noto Sans Arabic', 'Cairo', 'Tajawal', system-ui, sans-serif;
+}
+
+/* ================================================================
+   PAGE LOGIN / CONNEXION
+   ================================================================ */
+.tma-login-hero {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+}
+.tma-login-hero__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--blanc);
+    margin: 0 0 .5rem;
+}
+.tma-login-hero__sub {
+    color: rgba(255,255,255,.75);
+    font-size: 1rem;
+    margin: 0;
+}
+.tma-login-wrap {
+    padding: 3rem 0 5rem;
+    background: var(--gris-clair);
+}
+/* Centré (inscription désactivée) */
+.tma-login-center {
+    display: flex;
+    justify-content: center;
+}
+.tma-login-center .tma-login-card {
+    width: 100%;
+    max-width: 480px;
+}
+/* 2 colonnes (inscription activée) */
+.tma-login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+@media (max-width: 700px) {
+    .tma-login-grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.tma-login-card {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.tma-login-card__header {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+    padding: 2rem;
+    text-align: center;
+    color: var(--blanc);
+}
+.tma-login-card__icon {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+}
+.tma-login-card__icon svg { width: 24px; height: 24px; }
+.tma-login-card__icon--orange { background: rgba(249,115,22,.25); }
+.tma-login-card__header h2 { font-size: 1.3rem; font-weight: 700; margin: 0 0 .3rem; color: var(--blanc); }
+.tma-login-card__header p  { font-size: .9rem; margin: 0; color: rgba(255,255,255,.75); }
+
+/* Form */
+.tma-auth-form { padding: 2rem; }
+.tma-field-group { margin-bottom: 1.25rem; }
+.tma-field-group label { display: block; font-size: .9rem; font-weight: 600; color: var(--texte); margin-bottom: .45rem; }
+.tma-required { color: var(--orange); }
+.tma-input {
+    width: 100%;
+    padding: .7rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: .95rem;
+    color: var(--texte);
+    background: var(--blanc);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+}
+.tma-input:focus { outline: none; border-color: var(--bleu); box-shadow: 0 0 0 3px rgba(37,99,235,.12); }
+.tma-input::placeholder { color: var(--gris); }
+
+/* Login row (remember + lost pwd) */
+.tma-login-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+.tma-checkbox-label { display: flex; align-items: center; gap: .5rem; font-size: .88rem; color: var(--gris-fonce); cursor: pointer; }
+.tma-checkbox-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--bleu); cursor: pointer; }
+.tma-lost-pwd { font-size: .88rem; color: var(--bleu); text-decoration: none; }
+.tma-lost-pwd:hover { color: var(--orange); text-decoration: underline; }
+
+/* Submit button */
+.tma-auth-btn { width: 100%; justify-content: center; gap: .5rem; font-size: 1rem; padding: .85rem 1rem; }
+
+/* Info message */
+.tma-info-msg {
+    display: flex; align-items: flex-start; gap: .5rem;
+    font-size: .88rem; color: var(--gris-fonce);
+    background: var(--bleu-light);
+    border-radius: var(--radius);
+    padding: .75rem 1rem;
+    margin-bottom: 1.25rem;
+}
+.tma-info-msg svg { flex-shrink: 0; margin-top: 1px; color: var(--bleu); }
+
+/* Erreurs WooCommerce dans la page login */
+.tma-login-wrap .woocommerce-error,
+.tma-login-wrap .woocommerce-message,
+.tma-login-wrap .woocommerce-info {
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+}
+
+/* ================================================================
+   OFFER CARDS (archive + homepage)
+   ================================================================ */
+.tma-offer-card {
+    background:    var(--blanc);
+    border-radius: var(--radius-lg);
+    overflow:      hidden;
+    box-shadow:    var(--shadow-sm);
+    transition:    transform var(--transition), box-shadow var(--transition);
+    display:       flex;
+    flex-direction: column;
+    list-style:    none;
+}
+.tma-offer-card:hover {
+    transform:  translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+/* Image */
+.tma-card-link  { display: block; }
+.tma-card-image {
+    position:    relative;
+    overflow:    hidden;
+    aspect-ratio: 3/2;
+    background:  var(--bleu);
+}
+.tma-card-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+    display: block;
+}
+.tma-offer-card:hover .tma-card-image img { transform: scale(1.06); }
+
+/* Placeholder sans image */
+.tma-card-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+}
+.tma-card-placeholder svg { width: 80px; opacity: .4; }
+
+/* Badge catégorie */
+.tma-card-badge {
+    position:      absolute;
+    top:           .75rem;
+    left:          .75rem;
+    background:    var(--orange);
+    color:         var(--blanc);
+    font-size:     .72rem;
+    font-weight:   700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding:       .25rem .65rem;
+    border-radius: 999px;
+}
+.tma-card-promo {
+    position:    absolute;
+    top:         .75rem;
+    right:       .75rem;
+    background:  #ef4444;
+    color:       var(--blanc);
+    font-size:   .72rem;
+    font-weight: 700;
+    padding:     .25rem .65rem;
+    border-radius: 999px;
+}
+
+/* Corps */
+.tma-card-body {
+    padding:       1.25rem;
+    flex:          1;
+    display:       flex;
+    flex-direction: column;
+    gap:           .6rem;
+}
+.tma-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--bleu);
+    margin: 0;
+    line-height: 1.3;
+}
+.tma-card-title a { color: inherit; text-decoration: none; }
+.tma-card-title a:hover { color: var(--orange); }
+
+/* Méta (destination, durée) */
+.tma-card-meta {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.tma-meta-item {
+    display:     flex;
+    align-items: center;
+    gap:         .35rem;
+    font-size:   .8rem;
+    color:       var(--gris);
+    font-weight: 500;
+}
+.tma-meta-item svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* Extrait */
+.tma-card-excerpt {
+    font-size:   .85rem;
+    color:       var(--gris);
+    line-height: 1.55;
+    flex:        1;
+    margin:      0;
+    display:     -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow:    hidden;
+}
+
+/* Footer prix + bouton */
+.tma-card-footer {
+    display:     flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:         .5rem;
+    margin-top:  .5rem;
+    padding-top: .75rem;
+    border-top:  1px solid var(--border);
+}
+.tma-card-price  { display: flex; flex-direction: column; gap: .1rem; }
+.tma-price-old   { font-size: .78rem; color: var(--gris); text-decoration: line-through; }
+.tma-price-current .woocommerce-Price-amount { font-size: 1.15rem; font-weight: 800; color: var(--bleu); }
+.tma-price-points {
+    font-size:   .72rem;
+    color:       var(--orange);
+    font-weight: 600;
+}
+.tma-card-btn { padding: .5rem 1.1rem; font-size: .85rem; white-space: nowrap; }
+
+/* Grille archive */
+.woocommerce ul.products,
+.woocommerce-page ul.products,
+.tma-shop-wrap ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+@media (max-width: 900px) {
+    .woocommerce ul.products,
+    .woocommerce-page ul.products,
+    .tma-shop-wrap ul.products { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 560px) {
+    .woocommerce ul.products,
+    .woocommerce-page ul.products,
+    .tma-shop-wrap ul.products { grid-template-columns: 1fr !important; }
+}
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.tma-shop-wrap ul.products li.product { margin: 0 !important; padding: 0 !important; }
+/* WC products rendered as <article> — neutralise float-based WC defaults */
+.woocommerce ul.products article.product,
+.woocommerce-page ul.products article.product,
+.tma-shop-wrap ul.products article.product {
+    float: none !important;
+    width: 100% !important;
+    clear: none !important;
+    margin: 0 !important;
+}
+/* Supprime les pseudo-éléments clearfix WC qui deviennent des grid items et décalent les produits */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.woocommerce-page ul.products::before,
+.woocommerce-page ul.products::after,
+.tma-shop-wrap ul.products::before,
+.tma-shop-wrap ul.products::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* ================================================================
+   SHOP PAGE
+   ================================================================ */
+.tma-shop-hero {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+    padding: 3rem 0;
+    text-align: center;
+}
+.tma-shop-hero__title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--blanc);
+    margin: 0 0 .5rem;
+}
+.tma-shop-hero__desc {
+    color: rgba(255,255,255,.7);
+    font-size: 1rem;
+    margin: 0;
+    max-width: 560px;
+    margin-inline: auto;
+}
+
+/* Filtres catégories */
+.tma-shop-filters {
+    background: var(--blanc);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+}
+.tma-shop-filters .container {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       .5rem;
+}
+.tma-filter-btn {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           .4rem;
+    padding:       .45rem 1rem;
+    border-radius: 999px;
+    border:        1px solid var(--border);
+    font-size:     .85rem;
+    font-weight:   600;
+    color:         var(--gris-fonce);
+    text-decoration: none;
+    transition:    all var(--transition);
+    background:    var(--blanc);
+}
+.tma-filter-btn:hover,
+.tma-filter-btn.active {
+    background:    var(--bleu);
+    color:         var(--blanc);
+    border-color:  var(--bleu);
+}
+.tma-filter-count {
+    background: var(--gris-clair);
+    color:      var(--gris);
+    font-size:  .72rem;
+    padding:    .1rem .4rem;
+    border-radius: 999px;
+}
+.tma-filter-btn.active .tma-filter-count,
+.tma-filter-btn:hover .tma-filter-count {
+    background: rgba(255,255,255,.2);
+    color:      var(--blanc);
+}
+
+/* Wrap + bar */
+.tma-shop-wrap      { padding: 2.5rem 0 4rem; }
+.tma-shop-bar {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    margin-bottom:   1.5rem;
+    flex-wrap:       wrap;
+    gap:             .75rem;
+}
+.woocommerce-result-count { color: var(--gris); font-size: .88rem; margin: 0; }
+.woocommerce-ordering select {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .45rem .75rem;
+    font-size: .85rem;
+    color: var(--texte);
+    background: var(--blanc);
+    cursor: pointer;
+}
+
+/* État vide */
+.tma-shop-empty {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--gris);
+}
+.tma-shop-empty svg { width: 64px; margin-bottom: 1rem; }
+.tma-shop-empty p { margin-bottom: 1.5rem; }
+
+/* ================================================================
+   SINGLE PRODUCT
+   ================================================================ */
+/* Breadcrumb */
+.tma-single-breadcrumb {
+    background: var(--gris-clair);
+    padding: .65rem 0;
+    font-size: .82rem;
+}
+.tma-single-breadcrumb .woocommerce-breadcrumb { margin: 0; }
+.woocommerce-breadcrumb a { color: var(--bleu); }
+.woocommerce-breadcrumb a:hover { color: var(--orange); }
+
+/* Hero */
+.tma-single-hero {
+    min-height: 340px;
+    background-color: var(--bleu);
+    background-size:   cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+.tma-single-hero--placeholder {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+}
+.tma-single-hero__overlay {
+    width: 100%;
+    padding: 2rem 0;
+    background: linear-gradient(to top, rgba(7,26,54,.85) 0%, rgba(7,26,54,.2) 100%);
+}
+.tma-single-cat {
+    display:       inline-block;
+    background:    var(--orange);
+    color:         var(--blanc);
+    font-size:     .72rem;
+    font-weight:   700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding:       .25rem .75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    margin-bottom: .75rem;
+}
+.tma-single-title {
+    font-size:   2rem;
+    font-weight: 800;
+    color:       var(--blanc);
+    margin:      0 0 .75rem;
+    line-height: 1.2;
+}
+.tma-single-meta {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       1rem;
+    color:     rgba(255,255,255,.8);
+    font-size: .9rem;
+}
+.tma-single-meta span {
+    display:     flex;
+    align-items: center;
+    gap:         .4rem;
+}
+.tma-single-meta svg { width: 15px; height: 15px; }
+.tma-meta-pts { color: #fbbf24 !important; font-weight: 600; }
+
+/* Layout grille */
+.tma-single-wrap  { padding: 3rem 0 5rem; }
+.tma-single-grid  {
+    display:               grid;
+    grid-template-columns: 1fr 360px;
+    gap:                   3rem;
+    align-items:           start;
+}
+@media (max-width: 900px) {
+    .tma-single-grid  { grid-template-columns: 1fr; }
+    .tma-single-sidebar { order: -1; }
+}
+
+/* Card réservation (sidebar) */
+.tma-booking-card {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.5rem;
+    position:      sticky;
+    top:           90px;
+    box-shadow:    var(--shadow);
+}
+.tma-booking-price        { margin-bottom: 1.25rem; }
+.tma-booking-price__old   { font-size: .9rem; color: var(--gris); text-decoration: line-through; }
+.tma-booking-price__current .woocommerce-Price-amount {
+    font-size: 2rem; font-weight: 800; color: var(--bleu);
+}
+.tma-booking-price__label { font-size: .8rem; color: var(--gris); margin-top: .2rem; }
+
+.tma-booking-points {
+    display:       flex;
+    align-items:   center;
+    gap:           .5rem;
+    background:    #fef3c7;
+    color:         #92400e;
+    padding:       .65rem .9rem;
+    border-radius: var(--radius);
+    font-size:     .85rem;
+    margin-bottom: 1.25rem;
+}
+.tma-booking-points svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* Bouton WooCommerce add-to-cart dans la booking card */
+.tma-booking-card .single_add_to_cart_button {
+    width:         100%;
+    background:    var(--orange) !important;
+    color:         var(--blanc) !important;
+    border:        none !important;
+    border-radius: var(--radius) !important;
+    padding:       .9rem 1.5rem !important;
+    font-size:     1rem !important;
+    font-weight:   700 !important;
+    cursor:        pointer;
+    transition:    background var(--transition) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+.tma-booking-card .single_add_to_cart_button:hover { background: var(--orange-fonce) !important; }
+.tma-booking-card .cart { margin: 0; }
+.tma-booking-card .quantity { display: none; } /* Voyage = 1 personne par défaut */
+
+/* Infos pratiques */
+.tma-booking-info {
+    list-style: none;
+    margin:     1.25rem 0 0;
+    padding:    0;
+    display:    flex;
+    flex-direction: column;
+    gap:        .65rem;
+}
+.tma-booking-info li {
+    display:     flex;
+    align-items: center;
+    gap:         .6rem;
+    font-size:   .85rem;
+    color:       var(--gris-fonce);
+}
+.tma-booking-info svg { width: 16px; height: 16px; color: var(--bleu); flex-shrink: 0; }
+
+/* Partage */
+.tma-booking-share {
+    display:     flex;
+    align-items: center;
+    gap:         .75rem;
+    margin-top:  1.25rem;
+    padding-top: 1rem;
+    border-top:  1px solid var(--border);
+    font-size:   .82rem;
+    color:       var(--gris);
+}
+.tma-booking-share a {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    width:           32px;
+    height:          32px;
+    border-radius:   50%;
+    background:      #25D366;
+    color:           var(--blanc);
+    transition:      opacity var(--transition);
+}
+.tma-booking-share a:hover { opacity: .85; }
+.tma-booking-share svg { width: 16px; height: 16px; }
+
+/* Onglets WooCommerce */
+.woocommerce-tabs .tabs             { border-bottom: 2px solid var(--border); display: flex; gap: 0; padding: 0; margin: 0 0 1.5rem; list-style: none; }
+.woocommerce-tabs .tabs li          { margin: 0; }
+.woocommerce-tabs .tabs li a        { display: block; padding: .65rem 1.25rem; color: var(--gris); font-weight: 600; font-size: .9rem; text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.woocommerce-tabs .tabs li.active a { color: var(--bleu); border-bottom-color: var(--bleu); }
+.woocommerce-tabs .tabs li a:hover  { color: var(--bleu); }
+.woocommerce-tabs .panel            { background: var(--blanc); border: 1px solid var(--border); border-radius: 0 var(--radius) var(--radius) var(--radius); padding: 1.5rem; }
+.woocommerce-tabs h2                { font-size: 1.1rem; color: var(--bleu); margin-top: 0; }
+
+/* Produits connexes */
+.tma-related h2        { font-size: 1.3rem; font-weight: 700; color: var(--bleu); margin: 2.5rem 0 1.25rem; }
+
+/* Galerie produit masquée (on utilise notre hero) */
+.woocommerce-product-gallery { display: none !important; }
+
+/* ================================================================
+   MÉTA PRODUIT TMA (fiche produit)
+   ================================================================ */
+.tma-product-meta {
+    display: flex; flex-wrap: wrap; gap: .75rem;
+    margin: .75rem 0 1.25rem; padding: .75rem 1rem;
+    background: var(--bleu-light); border-radius: var(--radius);
+    border-left: 3px solid var(--bleu);
+}
+
+/* ================================================================
+   ALERTE FIDÉLITÉ PANIER
+   ================================================================ */
+.tma-fidelite-notice {
+    background: linear-gradient(135deg, #7c3aed18, #a855f718);
+    border: 1px solid #c4b5fd;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    font-size: .9rem;
+    color: #5b21b6;
+    margin-bottom: 1.5rem;
+}
+
+/* ================================================================
+   PAGINATION
+   ================================================================ */
+.woocommerce-pagination,
+.page-numbers {
+    display: flex; justify-content: center;
+    gap: .4rem; flex-wrap: wrap; margin-top: 2.5rem;
+    list-style: none; padding: 0;
+}
+.page-numbers a, .page-numbers span,
+.woocommerce-pagination a, .woocommerce-pagination span {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 40px; height: 40px; padding: 0 .75rem;
+    border-radius: var(--radius); border: 1px solid var(--border);
+    color: var(--texte); text-decoration: none;
+    font-size: .88rem; font-weight: 500;
+    transition: all var(--transition);
+}
+.page-numbers .current { background: var(--bleu); color: var(--blanc); border-color: var(--bleu); }
+.page-numbers a:hover  { background: var(--orange); color: var(--blanc); border-color: var(--orange); }
+
+/* ================================================================
+   WC MESSAGES
+   ================================================================ */
+.woocommerce-message::before  { color: #10b981; }
+.woocommerce-error::before    { color: #ef4444; }
+.woocommerce-message,
+.woocommerce-error {
+    border-radius: var(--radius);
+    font-size: .9rem;
+}
+
+/* ================================================================
+   MON COMPTE
+   ================================================================ */
+.woocommerce-MyAccount-navigation {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: .75rem;
+    margin-bottom: 0;
+}
+.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }
+.woocommerce-MyAccount-navigation li a {
+    display:       flex;
+    align-items:   center;
+    gap:           .6rem;
+    padding:       .65rem 1rem;
+    border-radius: var(--radius);
+    color:         var(--texte);
+    text-decoration: none;
+    font-size:     .9rem;
+    font-weight:   500;
+    transition:    all var(--transition);
+}
+.woocommerce-MyAccount-navigation li a:hover { background: var(--bleu-light); color: var(--bleu); }
+.woocommerce-MyAccount-navigation li.is-active a { background: var(--bleu); color: var(--blanc); }
+
+.woocommerce-MyAccount-content { background: var(--blanc); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 2rem; }
+
+/* ── Vue CONNECTÉE uniquement (body.logged-in) ──────────────── */
+body.logged-in.woocommerce-account .woocommerce {
+    display: grid !important;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+    align-items: start;
+    max-width: var(--max-w);
+    margin: 2.5rem auto 4rem;
+    padding: 0 1.25rem;
+}
+/* Notices wrapper → pleine largeur */
+body.logged-in.woocommerce-account .woocommerce > .woocommerce-notices-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+/* Placement explicite nav + contenu */
+body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation {
+    grid-column: 1;
+    grid-row: 2;
+    float: none !important;
+    width: auto !important;
+}
+body.logged-in.woocommerce-account .woocommerce-MyAccount-content {
+    grid-column: 2;
+    grid-row: 2;
+    float: none !important;
+    width: auto !important;
+}
+@media (max-width: 768px) {
+    body.logged-in.woocommerce-account .woocommerce {
+        grid-template-columns: 1fr;
+    }
+    body.logged-in.woocommerce-account .woocommerce-MyAccount-navigation { grid-column: 1; grid-row: 2; }
+    body.logged-in.woocommerce-account .woocommerce-MyAccount-content    { grid-column: 1; grid-row: 3; }
+}
+
+/* ================================================================
+   PANIER PERSONNALISÉ
+   ================================================================ */
+.tma-cart-wrap { padding: 2.5rem 0 4rem; }
+
+.tma-cart-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Notice points */
+.tma-cart-points-notice {
+    display:       flex;
+    align-items:   center;
+    gap:           .6rem;
+    background:    #fef3c7;
+    border:        1px solid #fbbf24;
+    border-radius: var(--radius);
+    padding:       .75rem 1rem;
+    font-size:     .9rem;
+    color:         #92400e;
+    margin-bottom: 1.25rem;
+}
+.tma-cart-points-notice svg { width: 18px; color: #f59e0b; flex-shrink: 0; }
+.tma-cart-points-notice strong { color: #78350f; }
+
+/* Liste d'articles */
+.tma-cart-items { display: flex; flex-direction: column; gap: 1px; }
+
+.tma-cart-item {
+    display:        grid;
+    grid-template-columns: 80px 1fr auto auto auto;
+    gap:            1rem;
+    align-items:    center;
+    background:     var(--blanc);
+    border:         1px solid var(--border);
+    border-radius:  var(--radius-lg);
+    padding:        1rem 1.25rem;
+    margin-bottom:  .75rem;
+}
+
+.tma-cart-item__img { width: 80px; height: 56px; border-radius: var(--radius); overflow: hidden; flex-shrink: 0; }
+.tma-cart-item__img img { width: 100%; height: 100%; object-fit: cover; }
+
+.tma-cart-item__name { font-weight: 600; color: var(--bleu); font-size: .95rem; margin-bottom: .3rem; }
+.tma-cart-item__name a { color: inherit; text-decoration: none; }
+.tma-cart-item__name a:hover { color: var(--orange); }
+
+.tma-cart-item__meta { display: flex; gap: 1rem; font-size: .8rem; color: var(--gris); margin-top: .25rem; }
+.tma-cart-item__meta span { display: flex; align-items: center; gap: .3rem; }
+.tma-cart-item__meta svg { width: 13px; }
+
+.tma-cart-item__pts { font-size: .8rem; color: var(--orange); margin-top: .3rem; display: flex; align-items: center; gap: .3rem; }
+.tma-cart-item__pts svg { width: 13px; }
+
+.tma-cart-item__qty .quantity input { width: 64px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); padding: .4rem; }
+
+.tma-cart-item__price { font-weight: 700; color: var(--bleu); white-space: nowrap; font-size: 1rem; }
+
+.tma-cart-remove {
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+    width:       28px; height: 28px;
+    border-radius: 50%;
+    color:       var(--gris);
+    transition:  all var(--transition);
+}
+.tma-cart-remove:hover { background: #fee2e2; color: #ef4444; }
+.tma-cart-remove svg { width: 16px; }
+
+/* Actions panier */
+.tma-cart-actions {
+    display:         flex;
+    align-items:     center;
+    gap:             1rem;
+    padding:         1rem 0;
+    border-top:      1px solid var(--border);
+    flex-wrap:       wrap;
+}
+.tma-coupon { display: flex; gap: .5rem; align-items: center; flex: 1; }
+.tma-coupon .input-text {
+    flex: 1;
+    max-width: 220px;
+    padding: .5rem .75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: .9rem;
+}
+/* .btn-outline défini dans style.css — pas de redéfinition ici */
+.tma-coupon .btn-outline {
+    padding:    .45rem 1rem;
+    font-size:  .85rem;
+    cursor:     pointer;
+}
+
+.btn-ghost {
+    display:       flex;
+    align-items:   center;
+    gap:           .4rem;
+    background:    transparent;
+    border:        1px solid var(--border);
+    color:         var(--gris);
+    padding:       .45rem 1rem;
+    border-radius: var(--radius);
+    font-size:     .85rem;
+    cursor:        pointer;
+    transition:    all var(--transition);
+}
+.btn-ghost svg { width: 15px; }
+.btn-ghost:hover { border-color: var(--bleu); color: var(--bleu); }
+
+/* Sidebar panier — totaux WC */
+.tma-cart-sidebar { position: sticky; top: 90px; }
+.tma-cart-totals-wrap .cart_totals { background: var(--blanc); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+.tma-cart-totals-wrap .cart_totals h2 { font-size: 1.1rem; color: var(--bleu); margin-bottom: 1rem; }
+.tma-cart-totals-wrap table { width: 100%; border-collapse: collapse; }
+.tma-cart-totals-wrap table th,
+.tma-cart-totals-wrap table td { padding: .6rem .25rem; font-size: .9rem; border-bottom: 1px solid var(--border); }
+.tma-cart-totals-wrap table th { font-weight: 600; color: var(--bleu); text-align: left; }
+.tma-cart-totals-wrap .order-total th,
+.tma-cart-totals-wrap .order-total td { font-size: 1.1rem; font-weight: 700; color: var(--bleu); border-bottom: none; }
+.tma-cart-totals-wrap .wc-proceed-to-checkout { margin-top: 1rem; }
+.tma-cart-totals-wrap .wc-proceed-to-checkout .checkout-button {
+    display:         block;
+    width:           100%;
+    background:      var(--orange);
+    color:           var(--blanc);
+    text-align:      center;
+    padding:         .9rem;
+    border-radius:   var(--radius);
+    font-weight:     700;
+    font-size:       1rem;
+    text-decoration: none;
+    transition:      background var(--transition);
+}
+.tma-cart-totals-wrap .wc-proceed-to-checkout .checkout-button:hover { background: var(--orange-fonce); }
+
+@media (max-width: 900px) {
+    .tma-cart-grid { grid-template-columns: 1fr; }
+    .tma-cart-sidebar { position: static; }
+    .tma-cart-item { grid-template-columns: 64px 1fr auto; grid-template-rows: auto auto; }
+    .tma-cart-item__qty { grid-column: 2; }
+    .tma-cart-item__price { grid-column: 3; text-align: right; }
+    .tma-cart-item__remove { grid-column: 3; grid-row: 1; justify-self: end; }
+}
+
+/* ================================================================
+   CHECKOUT PERSONNALISÉ
+   ================================================================ */
+.tma-checkout-wrap { padding: 2.5rem 0 4rem; }
+
+/* Étapes */
+.tma-checkout-steps {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             0;
+    margin-bottom:   2.5rem;
+}
+.tma-step {
+    display:     flex;
+    align-items: center;
+    gap:         .5rem;
+    font-size:   .85rem;
+    font-weight: 500;
+    color:       var(--gris);
+}
+.tma-step:not(:last-child)::after {
+    content:      '';
+    display:      block;
+    width:        60px;
+    height:       2px;
+    background:   var(--border);
+    margin:       0 .75rem;
+}
+.tma-step__num {
+    width:           28px; height: 28px;
+    border-radius:   50%;
+    background:      var(--border);
+    color:           var(--gris);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       .8rem;
+    font-weight:     700;
+    flex-shrink:     0;
+}
+.tma-step__num svg { width: 14px; }
+.tma-step--done .tma-step__num { background: #10b981; color: var(--blanc); }
+.tma-step--done { color: #10b981; }
+.tma-step--active .tma-step__num { background: var(--orange); color: var(--blanc); }
+.tma-step--active { color: var(--bleu); font-weight: 600; }
+.tma-step--active:not(:last-child)::after { background: var(--orange); }
+
+/* Grille principale */
+.tma-checkout-grid {
+    display:               grid;
+    grid-template-columns: 1fr 400px;
+    gap:                   2rem;
+    align-items:           start;
+}
+
+/* Sections champs */
+.tma-checkout-section {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.5rem;
+    margin-bottom: 1.25rem;
+}
+.tma-checkout-section__title {
+    display:       flex;
+    align-items:   center;
+    gap:           .6rem;
+    font-size:     1rem;
+    font-weight:   700;
+    color:         var(--bleu);
+    margin-bottom: 1.25rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--border);
+}
+.tma-checkout-section__title svg { width: 18px; color: var(--orange); flex-shrink: 0; }
+
+/* Champs WooCommerce */
+.tma-checkout-form .form-row { margin-bottom: .9rem; }
+.tma-checkout-form .form-row label { display: block; font-weight: 500; font-size: .85rem; margin-bottom: .3rem; color: var(--texte); }
+.tma-checkout-form .form-row .required { color: var(--orange); }
+.tma-checkout-form .input-text,
+.tma-checkout-form select {
+    width:         100%;
+    padding:       .6rem .85rem;
+    border:        1px solid var(--border);
+    border-radius: var(--radius);
+    font-size:     .9rem;
+    font-family:   inherit;
+    color:         var(--texte);
+    background:    var(--gris-clair);
+    transition:    border-color var(--transition);
+}
+.tma-checkout-form .input-text:focus,
+.tma-checkout-form select:focus { outline: none; border-color: var(--bleu); }
+.tma-checkout-form .form-row-wide { width: 100%; }
+.tma-checkout-form .form-row-first,
+.tma-checkout-form .form-row-last { width: calc(50% - .35rem); display: inline-block; }
+
+/* Sidebar checkout */
+.tma-checkout-sidebar { position: sticky; top: 90px; }
+
+.tma-checkout-summary {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Revue de commande WC */
+.woocommerce-checkout-review-order table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.woocommerce-checkout-review-order table th,
+.woocommerce-checkout-review-order table td { padding: .5rem .25rem; border-bottom: 1px solid var(--border); }
+.woocommerce-checkout-review-order table .product-name { font-weight: 500; }
+.woocommerce-checkout-review-order table tfoot .order-total th,
+.woocommerce-checkout-review-order table tfoot .order-total td { font-size: 1.1rem; font-weight: 700; color: var(--bleu); border-bottom: none; }
+
+/* Paiement */
+#payment { margin-top: 1rem; }
+#payment ul.payment_methods { list-style: none; margin: 0 0 1rem; padding: 0; }
+#payment ul.payment_methods li { padding: .75rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: .5rem; }
+#payment ul.payment_methods li label { font-weight: 500; cursor: pointer; }
+#payment .place-order { margin-top: 1rem; }
+#payment #place_order {
+    width:           100%;
+    background:      var(--orange);
+    color:           var(--blanc);
+    border:          none;
+    padding:         1rem;
+    border-radius:   var(--radius);
+    font-weight:     700;
+    font-size:       1rem;
+    cursor:          pointer;
+    transition:      background var(--transition);
+}
+#payment #place_order:hover { background: var(--orange-fonce); }
+
+/* Garanties */
+.tma-checkout-guarantees {
+    list-style:    none;
+    margin:        0;
+    padding:       1rem;
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    display:       flex;
+    flex-direction: column;
+    gap:           .7rem;
+}
+.tma-checkout-guarantees li {
+    display:     flex;
+    align-items: center;
+    gap:         .6rem;
+    font-size:   .85rem;
+    color:       var(--texte);
+}
+.tma-checkout-guarantees li svg { width: 16px; color: #10b981; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+    .tma-checkout-grid { grid-template-columns: 1fr; }
+    .tma-checkout-sidebar { position: static; }
+    .tma-checkout-steps { gap: .5rem; }
+    .tma-step:not(:last-child)::after { width: 30px; }
+    .tma-checkout-form .form-row-first,
+    .tma-checkout-form .form-row-last { width: 100%; display: block; }
+}
+
+/* ================================================================
+   WC PANIER (ancien — conservé pour compatibilité)
+   ================================================================ */
+.woocommerce-cart table.cart td,
+.woocommerce-cart table.cart th { padding: .85rem 1rem; vertical-align: middle; }
+.woocommerce-cart .cart-subtotal th,
+.woocommerce-cart .order-total th { font-weight: 600; color: var(--bleu); }
+.woocommerce-cart .order-total .woocommerce-Price-amount { font-size: 1.3rem; font-weight: 800; color: var(--bleu); }
+
+/* ================================================================
+   MON COMPTE — NAVIGATION
+   ================================================================ */
+.tma-account-nav ul { list-style: none; margin: 0; padding: 0; }
+
+.tma-account-nav li a {
+    display:         flex;
+    align-items:     center;
+    gap:             .65rem;
+    padding:         .7rem 1rem;
+    border-radius:   var(--radius);
+    color:           var(--gris-fonce);
+    text-decoration: none;
+    font-size:       .9rem;
+    font-weight:     500;
+    transition:      all var(--transition);
+}
+.tma-account-nav li a svg { width: 16px; height: 16px; flex-shrink: 0; opacity: .7; }
+.tma-account-nav li a:hover { background: var(--bleu-light); color: var(--bleu); }
+.tma-account-nav li a:hover svg { opacity: 1; }
+.tma-account-nav li.is-active a { background: var(--bleu); color: var(--blanc); font-weight: 600; }
+.tma-account-nav li.is-active a svg { opacity: 1; }
+
+.tma-nav-logout a { color: #ef4444 !important; }
+.tma-nav-logout a:hover { background: #fef2f2 !important; }
+
+/* ================================================================
+   MON COMPTE — DASHBOARD
+   ================================================================ */
+.tma-account-dashboard { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Bienvenue */
+.tma-dash-welcome {
+    display:       flex;
+    align-items:   center;
+    gap:           1rem;
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.25rem 1.5rem;
+}
+.tma-dash-avatar {
+    width:           52px; height: 52px;
+    border-radius:   50%;
+    background:      linear-gradient(135deg, var(--bleu), var(--bleu-clair));
+    color:           var(--blanc);
+    font-size:       1.4rem;
+    font-weight:     800;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    flex-shrink:     0;
+}
+.tma-dash-hello { font-size: 1.05rem; color: var(--bleu); margin: 0 0 .2rem; }
+.tma-dash-email { font-size: .85rem; color: var(--gris); margin: 0; }
+.tma-dash-logout {
+    margin-left:     auto;
+    display:         flex;
+    align-items:     center;
+    gap:             .4rem;
+    font-size:       .85rem;
+    color:           var(--gris);
+    text-decoration: none;
+    transition:      color var(--transition);
+}
+.tma-dash-logout svg { width: 16px; }
+.tma-dash-logout:hover { color: #ef4444; }
+
+/* Carte fidélité */
+.tma-fidelite-card {
+    display:       grid;
+    grid-template-columns: 1fr 1fr;
+    gap:           2rem;
+    background:    linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+    border-radius: var(--radius-lg);
+    padding:       1.75rem 2rem;
+    color:         var(--blanc);
+    position:      relative;
+    overflow:      hidden;
+}
+.tma-fidelite-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+    pointer-events: none;
+}
+
+.tma-fidelite-tier { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+.tma-fidelite-tier__badge {
+    display:       inline-block;
+    padding:       .3rem .85rem;
+    border-radius: 999px;
+    font-size:     .8rem;
+    font-weight:   700;
+    color:         var(--blanc);
+    letter-spacing: .05em;
+}
+.tma-fidelite-tier__discount { font-size: .82rem; opacity: .75; }
+
+.tma-fidelite-points { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .5rem; }
+.tma-fidelite-points__num  { font-size: 2.8rem; font-weight: 900; line-height: 1; }
+.tma-fidelite-points__label { font-size: .85rem; opacity: .75; }
+
+.tma-fidelite-sub { font-size: .82rem; opacity: .65; }
+
+/* Progress palier */
+.tma-fidelite-progress { display: flex; flex-direction: column; gap: .5rem; }
+.tma-fidelite-progress__labels {
+    display:         flex;
+    justify-content: space-between;
+    font-size:       .82rem;
+    opacity:         .8;
+}
+.tma-fidelite-progress__bar {
+    height:        8px;
+    background:    rgba(255,255,255,.2);
+    border-radius: 999px;
+    overflow:      hidden;
+}
+.tma-fidelite-progress__fill {
+    height:        100%;
+    border-radius: 999px;
+    transition:    width .6s ease;
+}
+.tma-fidelite-progress__hint { font-size: .82rem; opacity: .75; margin: .25rem 0 0; }
+.tma-fidelite-progress__vip { display: flex; align-items: center; gap: .5rem; font-size: .9rem; opacity: .9; }
+.tma-fidelite-progress__vip svg { width: 20px; color: #fbbf24; }
+
+.tma-fidelite-equivalence {
+    display:         flex;
+    align-items:     center;
+    gap:             .5rem;
+    margin-top:      1rem;
+    padding-top:     1rem;
+    border-top:      1px solid rgba(255,255,255,.15);
+    font-size:       .82rem;
+    opacity:         .7;
+}
+.tma-fidelite-equivalence svg { width: 16px; }
+
+/* Stats */
+.tma-dash-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.tma-dash-stat {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.25rem;
+    text-align:    center;
+}
+.tma-dash-stat__icon {
+    width:  44px; height: 44px;
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto .75rem;
+}
+.tma-dash-stat__icon svg { width: 22px; height: 22px; }
+.tma-dash-stat__val { font-size: 1.5rem; font-weight: 800; color: var(--bleu); }
+.tma-dash-stat__val small { font-size: .75rem; font-weight: 400; color: var(--gris); }
+.tma-dash-stat__lbl { font-size: .8rem; color: var(--gris); margin-top: .2rem; }
+
+/* Grille commandes + points */
+.tma-dash-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.tma-dash-section {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.25rem 1.5rem;
+}
+.tma-dash-section__head {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    margin-bottom:   1rem;
+    padding-bottom:  .75rem;
+    border-bottom:   1px solid var(--border);
+}
+.tma-dash-section__head h3 { font-size: .95rem; font-weight: 700; color: var(--bleu); margin: 0; }
+.tma-dash-section__head a  { font-size: .82rem; color: var(--orange); text-decoration: none; }
+.tma-dash-section__head a:hover { text-decoration: underline; }
+
+/* Commandes */
+.tma-dash-orders { display: flex; flex-direction: column; gap: .75rem; }
+.tma-dash-order {
+    display:       flex;
+    align-items:   center;
+    justify-content: space-between;
+    gap:           1rem;
+    padding:       .75rem;
+    border:        1px solid var(--border);
+    border-radius: var(--radius);
+}
+.tma-dash-order__ref  { font-weight: 700; color: var(--bleu); font-size: .85rem; }
+.tma-dash-order__name { display: block; font-size: .88rem; color: var(--texte); margin: .15rem 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+.tma-dash-order__date { font-size: .78rem; color: var(--gris); }
+.tma-dash-order__right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+.tma-dash-order__status {
+    padding:       .2rem .6rem;
+    border-radius: 999px;
+    font-size:     .75rem;
+    font-weight:   600;
+}
+.tma-dash-order__total { font-weight: 700; font-size: .9rem; color: var(--bleu); white-space: nowrap; }
+.tma-dash-order__link  { font-size: .82rem; color: var(--orange); text-decoration: none; }
+.tma-dash-order__link:hover { text-decoration: underline; }
+
+/* Historique points */
+.tma-dash-points-history { display: flex; flex-direction: column; gap: .6rem; }
+.tma-dash-pts-row {
+    display:     grid;
+    grid-template-columns: 36px 1fr auto auto;
+    gap:         .75rem;
+    align-items: center;
+    padding:     .5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.tma-dash-pts-row:last-child { border-bottom: none; }
+.tma-dash-pts-icon {
+    width:           36px; height: 36px;
+    border-radius:   var(--radius);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    flex-shrink:     0;
+}
+.tma-dash-pts-icon svg { width: 16px; height: 16px; }
+.tma-dash-pts-desc { display: block; font-size: .85rem; color: var(--texte); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tma-dash-pts-date { display: block; font-size: .75rem; color: var(--gris); }
+.tma-dash-pts-amount { font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.tma-dash-pts-balance { font-size: .78rem; color: var(--gris); white-space: nowrap; }
+
+/* Empty state */
+.tma-dash-empty { font-size: .9rem; color: var(--gris); padding: 1rem 0; }
+.tma-dash-empty a { color: var(--orange); }
+
+/* Liens rapides */
+.tma-dash-quicklinks {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+.tma-dash-quicklink {
+    display:         flex;
+    align-items:     center;
+    gap:             .5rem;
+    padding:         .6rem 1.1rem;
+    background:      var(--blanc);
+    border:          1px solid var(--border);
+    border-radius:   var(--radius);
+    font-size:       .85rem;
+    color:           var(--texte);
+    text-decoration: none;
+    font-weight:     500;
+    transition:      all var(--transition);
+}
+.tma-dash-quicklink svg { width: 16px; color: var(--bleu); }
+.tma-dash-quicklink:hover { border-color: var(--bleu); color: var(--bleu); background: var(--bleu-light); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tma-fidelite-card { grid-template-columns: 1fr; }
+    .tma-dash-stats    { grid-template-columns: repeat(2, 1fr); }
+    .tma-dash-grid     { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+    .tma-dash-stats    { grid-template-columns: 1fr 1fr; }
+    .tma-dash-welcome  { flex-wrap: wrap; }
+    .tma-dash-logout   { margin-left: 0; }
+    .tma-fidelite-points__num { font-size: 2rem; }
+}
+
+/* ================================================================
+   PAGE CONFIRMATION COMMANDE (THANK-YOU)
+   ================================================================ */
+.tma-thankyou-wrap { padding: 3rem 0 5rem; }
+
+/* Icône succès / échec */
+.tma-ty-icon {
+    width:           72px; height: 72px;
+    border-radius:   50%;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    margin:          0 auto 1.5rem;
+}
+.tma-ty-icon svg { width: 36px; height: 36px; }
+.tma-ty-icon--success { background: #f0fdf4; color: #10b981; border: 3px solid #10b981; }
+.tma-ty-icon--fail    { background: #fef2f2; color: #ef4444; border: 3px solid #ef4444; }
+
+/* Bloc hero */
+.tma-thankyou-hero { text-align: center; margin-bottom: 2.5rem; }
+.tma-ty-title { font-size: 2rem; font-weight: 800; color: var(--bleu); margin-bottom: .75rem; }
+.tma-ty-sub   { font-size: 1rem; color: var(--gris); max-width: 560px; margin: 0 auto 1.25rem; }
+
+/* Badge points gagnés */
+.tma-ty-points {
+    display:       inline-flex;
+    align-items:   center;
+    gap:           .5rem;
+    background:    #fef3c7;
+    border:        1px solid #fbbf24;
+    color:         #92400e;
+    border-radius: var(--radius);
+    padding:       .6rem 1.25rem;
+    font-size:     .95rem;
+    margin:        0 auto;
+}
+.tma-ty-points svg { width: 18px; color: #f59e0b; flex-shrink: 0; }
+.tma-ty-points strong { color: #78350f; }
+
+/* Étapes */
+.tma-ty-steps {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             .5rem;
+    margin-bottom:   2.5rem;
+    flex-wrap:       wrap;
+}
+.tma-ty-step { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.tma-ty-step__num {
+    width:           32px; height: 32px;
+    border-radius:   50%;
+    background:      var(--border);
+    color:           var(--gris);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       .85rem;
+    font-weight:     700;
+}
+.tma-ty-step__num svg { width: 16px; }
+.tma-ty-step__label { font-size: .78rem; color: var(--gris); white-space: nowrap; }
+.tma-ty-step--done  .tma-ty-step__num { background: #10b981; color: var(--blanc); }
+.tma-ty-step--active .tma-ty-step__num { background: var(--orange); color: var(--blanc); }
+.tma-ty-step--active .tma-ty-step__label { color: var(--bleu); font-weight: 600; }
+.tma-ty-step__line { width: 60px; height: 2px; background: var(--border); flex-shrink: 0; }
+
+/* Grille détails */
+.tma-ty-grid {
+    display:               grid;
+    grid-template-columns: 1fr 1fr;
+    gap:                   1.5rem;
+    margin-bottom:         1.5rem;
+}
+
+/* Carte générique */
+.tma-ty-card {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.5rem;
+}
+.tma-ty-card__title {
+    display:         flex;
+    align-items:     center;
+    gap:             .6rem;
+    font-size:       1rem;
+    font-weight:     700;
+    color:           var(--bleu);
+    margin-bottom:   1.25rem;
+    padding-bottom:  .75rem;
+    border-bottom:   1px solid var(--border);
+}
+.tma-ty-card__title svg { width: 18px; color: var(--orange); }
+
+/* Détails liste */
+.tma-ty-details { list-style: none; margin: 0; padding: 0; }
+.tma-ty-details li {
+    display:         flex;
+    justify-content: space-between;
+    padding:         .55rem 0;
+    border-bottom:   1px solid var(--border);
+    font-size:       .9rem;
+}
+.tma-ty-details li span { color: var(--gris); }
+.tma-ty-details li strong { color: var(--texte); }
+.tma-ty-details__total { border-bottom: none !important; padding-top: .85rem !important; }
+.tma-ty-details__total span,
+.tma-ty-details__total strong { font-size: 1.05rem !important; font-weight: 800 !important; color: var(--bleu) !important; }
+
+/* Articles réservés */
+.tma-ty-items { display: flex; flex-direction: column; gap: 1rem; }
+.tma-ty-item {
+    display:     grid;
+    grid-template-columns: 64px 1fr auto;
+    gap:         .75rem;
+    align-items: start;
+}
+.tma-ty-item__img { width: 64px; height: 48px; border-radius: var(--radius); overflow: hidden; }
+.tma-ty-item__img img { width: 100%; height: 100%; object-fit: cover; }
+.tma-ty-item__placeholder {
+    width: 100%; height: 100%;
+    background: var(--bleu-light);
+    display: flex; align-items: center; justify-content: center;
+}
+.tma-ty-item__placeholder svg { width: 20px; color: var(--bleu); }
+.tma-ty-item__info strong { display: block; font-size: .9rem; color: var(--texte); margin-bottom: .25rem; }
+.tma-ty-item__meta { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .78rem; color: var(--gris); margin-bottom: .25rem; }
+.tma-ty-item__qty  { font-size: .8rem; color: var(--gris); }
+.tma-ty-item__price { text-align: right; font-weight: 700; color: var(--bleu); font-size: .95rem; }
+.tma-ty-item__pts { display: block; font-size: .78rem; color: var(--orange); font-weight: 600; margin-top: .2rem; }
+
+/* Coordonnées */
+.tma-ty-contact-card {
+    background:    var(--blanc);
+    border:        1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding:       1.5rem;
+    margin-bottom: 1.5rem;
+}
+.tma-ty-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; }
+.tma-ty-contact-grid h4 { font-size: .85rem; color: var(--gris); font-weight: 600; margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .04em; }
+.tma-ty-contact-grid address { font-style: normal; font-size: .9rem; color: var(--texte); line-height: 1.7; }
+.tma-ty-contact-grid p { font-size: .9rem; color: var(--texte); }
+
+/* Actions */
+.tma-ty-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.tma-ty-whatsapp { background: #25d366; color: var(--blanc); border-color: #25d366; }
+.tma-ty-whatsapp:hover { background: #20b858; color: var(--blanc); }
+
+/* Échec */
+.tma-thankyou-failed { text-align: center; max-width: 480px; margin: 0 auto; }
+.tma-thankyou-failed h1 { font-size: 1.75rem; color: #ef4444; margin-bottom: .75rem; }
+.tma-thankyou-failed p  { color: var(--gris); margin-bottom: 1.5rem; }
+.tma-thankyou-failed .tma-ty-actions { justify-content: center; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tma-ty-grid         { grid-template-columns: 1fr; }
+    .tma-ty-contact-grid { grid-template-columns: 1fr; }
+    .tma-ty-steps        { display: none; }
+    .tma-ty-title        { font-size: 1.5rem; }
+}
+
+/* ================================================================
+   RESPONSIVE DIVERS
+   ================================================================ */
+@media (max-width: 900px) {
+    .tma-single-title { font-size: 1.5rem; }
+    .tma-single-hero  { min-height: 240px; }
+    .tma-shop-hero__title { font-size: 1.6rem; }
+}

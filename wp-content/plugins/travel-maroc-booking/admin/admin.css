@@ -1,0 +1,20 @@
+.tma-admin { font-family: 'Segoe UI', system-ui, sans-serif; }
+.tma-admin h1 { color: #0d2b55; font-size: 1.6rem; margin-bottom: 1.5rem; border-bottom: 3px solid #f97316; padding-bottom: .5rem; }
+.tma-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.tma-kpi { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.25rem; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
+.tma-kpi-orange .tma-kpi-value { color: #f97316; }
+.tma-kpi-purple .tma-kpi-value { color: #7c3aed; }
+.tma-kpi-red    .tma-kpi-value { color: #ef4444; }
+.tma-kpi-value { font-size: 1.8rem; font-weight: 800; color: #0d2b55; }
+.tma-kpi-label { font-size: .78rem; color: #6b7280; margin-top: .25rem; }
+.tma-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.tma-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.25rem; }
+.tma-card h3 { color: #0d2b55; margin-bottom: 1rem; font-size: 1rem; }
+.tma-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.tma-table th { background: #f5f7fa; color: #374151; font-weight: 600; padding: .6rem .75rem; text-align: left; border-bottom: 2px solid #e5e7eb; }
+.tma-table td { padding: .6rem .75rem; border-bottom: 1px solid #f3f4f6; color: #374151; }
+.tma-table tr:hover td { background: #f9fafb; }
+.tma-table-full { margin-top: .5rem; }
+.tma-badge { display: inline-block; padding: .2rem .65rem; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+code { background: #f3f4f6; padding: .15rem .4rem; border-radius: 4px; font-size: .82rem; }
+@media (max-width: 900px) { .tma-grid-2 { grid-template-columns: 1fr; } }

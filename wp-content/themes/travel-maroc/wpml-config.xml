@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wpml-config>
+
+    <!--
+        Champs meta produits TMA
+        translate = WPML crée une version par langue
+        copy      = même valeur dans toutes les langues (IDs, nombres)
+    -->
+    <custom-fields>
+        <custom-field action="translate">_tma_destination</custom-field>
+        <custom-field action="translate">_tma_duration</custom-field>
+        <custom-field action="copy">_tma_points</custom-field>
+        <custom-field action="copy">_tma_guide_id</custom-field>
+        <custom-field action="copy">_tma_hotel_id</custom-field>
+        <custom-field action="copy">_tma_transport_id</custom-field>
+    </custom-fields>
+
+    <!--
+        Options WordPress traduites par WPML String Translation
+        (apparaissent dans WPML > String Translation)
+    -->
+    <admin-texts>
+        <key name="tma_about_text" />
+        <key name="tma_contact_address" />
+        <key name="tma_contact_phone" />
+        <key name="tma_contact_email" />
+        <key name="tma_whatsapp_number" />
+    </admin-texts>
+
+    <!--
+        Types de contenu à traduire
+    -->
+    <language-switcher-settings>
+        <setting name="show_on_product_single">1</setting>
+        <setting name="show_on_shop">1</setting>
+    </language-switcher-settings>
+
+</wpml-config>

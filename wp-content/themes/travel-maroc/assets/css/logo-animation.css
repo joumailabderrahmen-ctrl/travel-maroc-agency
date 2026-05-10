@@ -1,0 +1,72 @@
+/* ================================================================
+   TRAVEL MAROC — Logo Animé (structure + couleurs, timing via GSAP)
+   ================================================================ */
+
+.tma-logo-wrap {
+    display:         inline-flex;
+    align-items:     center;
+    text-decoration: none;
+    line-height:     1;
+}
+
+/* Conteneur SVG */
+.tma-logo-svg {
+    width:    240px;
+    height:   62px;
+    overflow: visible;
+    display:  block;
+}
+
+/* ── Scènes (visibilité gérée par GSAP) ─────────────────────── */
+.lgs-road,
+.lgs-sky {
+    pointer-events: none;
+}
+
+/* ── Typographie ─────────────────────────────────────────────── */
+.lgt-travel {
+    font-family:  'Segoe UI', system-ui, sans-serif;
+    font-weight:  300;
+    font-size:    21px;
+    fill:         #ffffff;
+    letter-spacing: .12em;
+}
+
+.lgt-maroc {
+    font-family:  'Segoe UI', system-ui, sans-serif;
+    font-weight:  800;
+    font-size:    21px;
+    fill:         #f97316;
+    letter-spacing: .06em;
+}
+
+.lgt-tagline {
+    font-family:  'Segoe UI', system-ui, sans-serif;
+    font-weight:  400;
+    font-size:    6.5px;
+    fill:         rgba(255,255,255,.45);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+/* ── Ligne décorative sous le texte ─────────────────────────── */
+.lgl-underline {
+    stroke:           #f97316;
+    stroke-width:     1.5;
+    stroke-linecap:   round;
+    fill:             none;
+    stroke-dasharray: 190;
+    stroke-dashoffset: 190;
+}
+
+/* ── Accessibilité — prefers-reduced-motion ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .lgs-road, .lgs-sky { display: none !important; }
+    .lgs-wordmark { opacity: 1 !important; transform: none !important; }
+    .lgl-underline { stroke-dashoffset: 0 !important; }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .tma-logo-svg { width: 180px; height: 46px; }
+}

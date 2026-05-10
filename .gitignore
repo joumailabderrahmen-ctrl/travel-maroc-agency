@@ -1,0 +1,61 @@
+# ── WordPress Core ────────────────────────────────────────────────────────────
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+/wp-*.php
+/wp-admin/
+/wp-includes/
+
+# ── Configuration sensible ────────────────────────────────────────────────────
+wp-config.php
+.env
+*.env
+
+# ── Plugins tiers (non sur-mesure) ───────────────────────────────────────────
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+/wp-content/plugins/polylang/
+/wp-content/plugins/woocommerce/
+
+# ── Thèmes tiers ──────────────────────────────────────────────────────────────
+/wp-content/themes/twentytwenty*/
+/wp-content/themes/storefront*/
+
+# ── Uploads (médias) ──────────────────────────────────────────────────────────
+/wp-content/uploads/
+
+# ── Cache et logs ─────────────────────────────────────────────────────────────
+/wp-content/cache/
+/wp-content/debug.log
+*.log
+
+# ── Traductions auto-générées ─────────────────────────────────────────────────
+/wp-content/languages/
+
+# ── OS & éditeurs ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+*.sublime-workspace
+
+# ── Node (si utilisé) ────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ── Fichiers de diagnostic (temporaires) ─────────────────────────────────────
+tma-diag*.php
+
+# ── Ce qui EST inclus dans le dépôt ─────────────────────────────────────────
+# ✅ wp-content/plugins/travel-maroc-booking/
+# ✅ wp-content/themes/travel-maroc/
+# ✅ wp-config-sample.php
+# ✅ .htaccess
+# ✅ README.md
+# ✅ GUIDE-UTILISATEUR.md
+# ✅ RAPPORT_ACADEMIQUE.tex

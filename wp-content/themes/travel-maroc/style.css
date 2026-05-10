@@ -1,0 +1,406 @@
+/*
+Theme Name:  Travel Maroc Agency
+Theme URI:   http://localhost/boutique
+Description: Thème custom pour agence de voyage — bleu marine, blanc, orange. Mobile-first, WooCommerce ready.
+Version:     1.0.0
+Author:      EST Dakhla CDL 2025/2026
+Text Domain: travel-maroc
+*/
+
+/* ================================================================
+   VARIABLES & RESET
+   ================================================================ */
+:root {
+    --bleu:       #0d2b55;
+    --bleu-clair: #1a4a8a;
+    --bleu-light: #e8f0fc;
+    --orange:     #f97316;
+    --orange-fonce:#ea6700;
+    --blanc:      #ffffff;
+    --gris-clair: #f5f7fa;
+    --gris:       #6b7280;
+    --gris-fonce: #374151;
+    --texte:      #1f2937;
+    --border:     #e5e7eb;
+    --shadow-sm:  0 1px 3px rgba(0,0,0,.1);
+    --shadow:     0 4px 16px rgba(0,0,0,.12);
+    --shadow-lg:  0 12px 40px rgba(0,0,0,.18);
+    --radius:     10px;
+    --radius-lg:  16px;
+    --transition: .25s ease;
+    --max-w:      1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--texte);
+    background: var(--blanc);
+    line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a  { color: var(--bleu); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--orange); }
+ul { list-style: none; }
+
+/* ================================================================
+   UTILITAIRES
+   ================================================================ */
+.container      { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem; }
+.section-title  { font-size: 2rem; font-weight: 700; color: var(--bleu); margin-bottom: .5rem; }
+.section-sub    { color: var(--gris); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.text-center    { text-align: center; }
+.btn            { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.75rem;
+                  border-radius: var(--radius); font-weight: 600; font-size: 1rem;
+                  cursor: pointer; border: none; transition: all var(--transition); }
+.btn-primary    { background: var(--orange); color: var(--blanc); }
+.btn-primary:hover { background: var(--orange-fonce); color: var(--blanc); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-outline    { background: transparent; color: var(--bleu); border: 2px solid var(--bleu); }
+.btn-outline:hover { background: var(--bleu); color: var(--blanc); }
+.btn-white      { background: var(--blanc); color: var(--bleu); }
+.btn-white:hover{ background: var(--orange); color: var(--blanc); }
+.badge          { display: inline-block; padding: .2rem .65rem; border-radius: 999px;
+                  font-size: .78rem; font-weight: 600; }
+.badge-orange   { background: rgba(249,115,22,.15); color: var(--orange-fonce); }
+.badge-bleu     { background: var(--bleu-light); color: var(--bleu); }
+.grid-3         { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; }
+.grid-2         { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px,1fr)); gap: 1.5rem; }
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.site-header {
+    background: var(--bleu);
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .9rem 1.25rem; max-width: var(--max-w); margin: 0 auto;
+}
+.site-branding { display: flex; align-items: center; gap: .75rem; }
+.site-branding .site-name {
+    font-size: 1.3rem; font-weight: 800; color: var(--blanc); letter-spacing: -.02em;
+}
+.site-branding .site-name span { color: var(--orange); }
+.site-branding .site-tagline { font-size: .78rem; color: rgba(255,255,255,.65); }
+
+.primary-nav ul { display: flex; align-items: center; gap: 2rem; }
+.primary-nav a  { color: rgba(255,255,255,.85); font-weight: 500; font-size: .95rem;
+                  padding: .3rem 0; border-bottom: 2px solid transparent; transition: all var(--transition); }
+.primary-nav a:hover,
+.primary-nav .current-menu-item > a { color: var(--blanc); border-bottom-color: var(--orange); }
+
+.header-actions { display: flex; align-items: center; gap: .75rem; }
+.cart-icon { position: relative; color: var(--blanc); font-size: 1.4rem; }
+.cart-count {
+    position: absolute; top: -8px; right: -8px;
+    background: var(--orange); color: var(--blanc);
+    width: 20px; height: 20px; border-radius: 50%;
+    font-size: .7rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .5rem; }
+.nav-toggle span {
+    display: block; width: 24px; height: 2px;
+    background: var(--blanc); margin: 5px 0; transition: all var(--transition);
+}
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 60%, #2563eb 100%);
+    padding: 6rem 0 5rem;
+    position: relative; overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('assets/images/hero-bg.jpg') center/cover no-repeat;
+    opacity: .18;
+}
+/* Vidéo background hero */
+.hero-video-bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.hero-video-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,43,85,.87) 0%, rgba(37,99,235,.65) 100%);
+    z-index: 1;
+}
+/* Page Mon Compte — full container sans max-width étroit */
+.tma-account-section { padding: 2.5rem 0 4rem; }
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-badge    { margin-bottom: 1.25rem; }
+.hero-title    { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900;
+                 color: var(--blanc); line-height: 1.15; margin-bottom: 1.25rem; }
+.hero-title span { color: var(--orange); }
+.hero-desc     { font-size: 1.15rem; color: rgba(255,255,255,.85); margin-bottom: 2.25rem; max-width: 560px; }
+.hero-actions  { display: flex; flex-wrap: wrap; gap: 1rem; }
+.hero-stats    { display: flex; gap: 2.5rem; margin-top: 3rem; }
+.hero-stat     { text-align: center; }
+.hero-stat-num { font-size: 2rem; font-weight: 800; color: var(--orange); }
+.hero-stat-lbl { font-size: .82rem; color: rgba(255,255,255,.7); }
+
+/* ================================================================
+   CARTES OFFRES
+   ================================================================ */
+.section { padding: 5rem 0; }
+.section-alt { background: var(--gris-clair); }
+
+.offer-card {
+    background: var(--blanc);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    display: flex; flex-direction: column;
+    border: 1px solid var(--border);
+}
+.offer-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.offer-card-img   { position: relative; overflow: hidden; height: 220px; }
+.offer-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.offer-card:hover .offer-card-img img { transform: scale(1.06); }
+.offer-cat-badge  { position: absolute; top: 1rem; left: 1rem; }
+.offer-card-body  { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.offer-card-title { font-size: 1.15rem; font-weight: 700; color: var(--bleu);
+                    margin-bottom: .5rem; }
+.offer-card-meta  { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
+.offer-meta-item  { display: flex; align-items: center; gap: .35rem;
+                    font-size: .85rem; color: var(--gris); }
+.offer-meta-item svg { width: 15px; height: 15px; flex-shrink: 0; }
+.offer-card-desc  { font-size: .9rem; color: var(--gris); line-height: 1.5;
+                    flex: 1; margin-bottom: 1.25rem;
+                    display: -webkit-box; -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical; overflow: hidden; }
+.offer-card-footer{ display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.offer-price      { font-size: 1.5rem; font-weight: 800; color: var(--bleu); }
+.offer-price small { font-size: .8rem; font-weight: 400; color: var(--gris); }
+
+/* ================================================================
+   DESTINATIONS
+   ================================================================ */
+.dest-card {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    height: 240px; cursor: pointer;
+}
+.dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.dest-card:hover img { transform: scale(1.08); }
+.dest-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,43,85,.85) 30%, transparent);
+    display: flex; align-items: flex-end; padding: 1.25rem;
+}
+.dest-card-info { color: var(--blanc); }
+.dest-card-name { font-size: 1.25rem; font-weight: 700; }
+.dest-card-count{ font-size: .85rem; opacity: .8; }
+
+/* ================================================================
+   WHY US — Avantages
+   ================================================================ */
+.why-card {
+    text-align: center; padding: 2.5rem 2rem;
+    background: var(--blanc); border-radius: var(--radius-lg);
+    border: 1px solid var(--border); transition: all var(--transition);
+}
+.why-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
+.why-icon {
+    width: 72px; height: 72px; margin: 0 auto 1.25rem;
+    background: var(--bleu-light); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
+.why-icon svg { width: 32px; height: 32px; color: var(--bleu); }
+.why-title { font-size: 1.1rem; font-weight: 700; color: var(--bleu); margin-bottom: .5rem; }
+.why-desc  { font-size: .9rem; color: var(--gris); }
+
+/* ================================================================
+   CTA SECTION
+   ================================================================ */
+.cta-section {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-fonce) 100%);
+    padding: 5rem 0; text-align: center;
+}
+.cta-section h2 { font-size: 2.25rem; font-weight: 800; color: var(--blanc); margin-bottom: 1rem; }
+.cta-section p  { font-size: 1.1rem; color: rgba(255,255,255,.88); margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+/* ================================================================
+   TESTIMONIALS
+   ================================================================ */
+.testimonial-card {
+    background: var(--blanc); border-radius: var(--radius-lg);
+    padding: 2rem; border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+}
+.stars { color: #f59e0b; margin-bottom: .75rem; font-size: 1.1rem; }
+.testimonial-text { font-style: italic; color: var(--gris-fonce); margin-bottom: 1.25rem; }
+.testimonial-author { display: flex; align-items: center; gap: .75rem; }
+.author-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--bleu-light); display: flex; align-items: center;
+    justify-content: center; font-weight: 700; color: var(--bleu); font-size: 1.1rem;
+}
+.author-name { font-weight: 600; color: var(--texte); font-size: .9rem; }
+.author-loc  { font-size: .8rem; color: var(--gris); }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.site-footer { background: var(--bleu); color: rgba(255,255,255,.8); padding: 4rem 0 0; }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem; padding-bottom: 3rem;
+}
+.footer-brand .brand-name { font-size: 1.4rem; font-weight: 800; color: var(--blanc); margin-bottom: .75rem; }
+.footer-brand .brand-name span { color: var(--orange); }
+.footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 280px; }
+.footer-col h4 { color: var(--blanc); font-weight: 700; margin-bottom: 1.25rem; font-size: 1rem; }
+.footer-col ul { display: flex; flex-direction: column; gap: .6rem; }
+.footer-col a  { font-size: .9rem; color: rgba(255,255,255,.75); transition: color var(--transition); }
+.footer-col a:hover { color: var(--orange); }
+.footer-contact li { display: flex; align-items: flex-start; gap: .6rem; font-size: .9rem; margin-bottom: .6rem; }
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding: 1.5rem 0; text-align: center;
+    font-size: .85rem; color: rgba(255,255,255,.5);
+}
+
+/* ================================================================
+   WOOCOMMERCE OVERRIDES
+   ================================================================ */
+.woocommerce .woocommerce-notices-wrapper { max-width: var(--max-w); margin: 0 auto; }
+.woocommerce-message, .woocommerce-error, .woocommerce-info {
+    padding: 1rem 1.5rem; border-radius: var(--radius); margin-bottom: 1.5rem;
+    border-left: 4px solid;
+}
+.woocommerce-message { border-color: #10b981; background: #f0fdf4; color: #065f46; }
+.woocommerce-error   { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+.woocommerce-info    { border-color: var(--bleu); background: var(--bleu-light); }
+
+/* Bouton Ajouter au panier */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    background: var(--orange) !important; color: var(--blanc) !important;
+    border-radius: var(--radius) !important; font-weight: 600 !important;
+    padding: .75rem 1.5rem !important; border: none !important;
+    transition: all var(--transition) !important;
+}
+.woocommerce a.button:hover,
+.woocommerce button.button:hover {
+    background: var(--orange-fonce) !important; transform: translateY(-1px) !important;
+}
+.woocommerce a.button.alt, .woocommerce button.button.alt {
+    background: var(--bleu) !important;
+}
+.woocommerce a.button.alt:hover { background: var(--bleu-clair) !important; }
+
+/* Prix produit */
+.woocommerce .price { font-size: 1.4rem !important; font-weight: 800 !important; color: var(--bleu) !important; }
+.woocommerce ins .amount { color: var(--bleu) !important; }
+
+/* Page produit single */
+.woocommerce div.product .product_title { color: var(--bleu); font-size: 2rem; }
+.woocommerce div.product .woocommerce-product-details__short-description {
+    border-left: 3px solid var(--orange); padding-left: 1rem;
+    color: var(--gris-fonce); font-size: 1rem;
+}
+
+/* Panier */
+.woocommerce-cart table.cart th { background: var(--bleu); color: var(--blanc); padding: 1rem; }
+.woocommerce-cart table.cart td { padding: 1rem; border-bottom: 1px solid var(--border); }
+
+/* Checkout */
+.woocommerce-checkout .form-row label { font-weight: 600; color: var(--bleu); }
+.woocommerce-checkout .form-row input { border-radius: var(--radius); border: 1px solid var(--border); padding: .65rem 1rem; }
+.woocommerce #payment { background: var(--gris-clair); border-radius: var(--radius-lg); }
+
+/* Fil d'Ariane */
+.woocommerce .woocommerce-breadcrumb {
+    background: var(--gris-clair); padding: .75rem 1.25rem;
+    border-radius: var(--radius); font-size: .88rem; margin-bottom: 2rem;
+}
+
+/* ================================================================
+   PAGE ARCHIVE / SHOP
+   ================================================================ */
+.shop-header { background: var(--bleu); padding: 3rem 0; text-align: center; }
+.shop-header h1 { color: var(--blanc); font-size: 2rem; font-weight: 800; }
+.shop-header p  { color: rgba(255,255,255,.75); }
+
+/* ================================================================
+   PAGE CONTACT
+   ================================================================ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-form input, .contact-form textarea, .contact-form select {
+    width: 100%; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: .75rem 1rem; font-size: 1rem; color: var(--texte);
+    transition: border-color var(--transition);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none; border-color: var(--bleu); box-shadow: 0 0 0 3px var(--bleu-light);
+}
+.contact-form label { display: block; font-weight: 600; color: var(--bleu); margin-bottom: .4rem; }
+.contact-form .form-group { margin-bottom: 1.25rem; }
+.contact-info-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-icon { width: 48px; height: 48px; background: var(--bleu-light);
+                border-radius: var(--radius); display: flex; align-items: center;
+                justify-content: center; flex-shrink: 0; }
+.contact-icon svg { color: var(--bleu); width: 22px; height: 22px; }
+
+/* ================================================================
+   PAGE À PROPOS
+   ================================================================ */
+.about-hero { background: var(--bleu); padding: 5rem 0; }
+.about-hero h1 { color: var(--blanc); font-size: 2.5rem; font-weight: 900; }
+.about-hero p  { color: rgba(255,255,255,.8); font-size: 1.1rem; max-width: 560px; }
+.team-card { text-align: center; }
+.team-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--bleu), var(--bleu-clair));
+    margin: 0 auto 1rem; display: flex; align-items: center;
+    justify-content: center; font-size: 2.5rem; color: var(--blanc);
+}
+.team-name { font-weight: 700; color: var(--bleu); }
+.team-role { font-size: .88rem; color: var(--gris); }
+
+/* ================================================================
+   FIDELITE — Bandeau points
+   ================================================================ */
+.fidelite-banner {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    padding: .75rem 1.25rem; display: flex; align-items: center;
+    justify-content: center; gap: 1rem; font-size: .9rem; color: var(--blanc);
+}
+.fidelite-banner strong { font-size: 1.05rem; }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .primary-nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
+                   background: var(--bleu); padding: 1rem 1.25rem; flex-direction: column; }
+    .primary-nav.open { display: block; }
+    .primary-nav ul { flex-direction: column; gap: .5rem; }
+    .primary-nav a { display: block; padding: .6rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .nav-toggle { display: block; }
+    .site-header { position: relative; }
+    .hero { padding: 4rem 0 3rem; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .section { padding: 3.5rem 0; }
+}
+@media (max-width: 480px) {
+    .hero-title { font-size: 1.75rem; }
+    .section-title { font-size: 1.5rem; }
+    .hero-actions { flex-direction: column; }
+}
